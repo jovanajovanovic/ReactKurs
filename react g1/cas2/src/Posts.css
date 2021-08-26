@@ -1,0 +1,10 @@
+/* svi stilovi vezani za Posts */
+
+/* treba da napravimo da nam kontejner gde nam se nalaze postovi bude flex  */
+
+.posts_container{
+    display: flex; 
+    flex-direction: row;
+    height: 500px;
+    flex-wrap: wrap;
+}

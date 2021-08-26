@@ -1,7 +1,7 @@
 // komponenta za prikaz svih postova 
 
 import { ShowPost } from "./ShowPost"
-
+import './Posts.css';
 
 
 export function Posts(props) { 
@@ -15,7 +15,7 @@ export function Posts(props) {
     
     // vratice mi neki react element -> jsx izraz => html + js ({js izraz})
     let element  = (
-        <div>
+        <div className='posts_container'>
             {postsJsx} 
         </div>
     );

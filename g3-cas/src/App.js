@@ -5,7 +5,7 @@ import './App.css';
 //props je lista atributa koji su prosledjeni komponenti kao atributi html/a <App todo={data} id={id}/>
 function App(props) {
   return (
-    <table> 
+    <table className='table_todo'> 
       <caption> Todo - {props.id} </caption>
       <tr> 
         <th> ID </th>

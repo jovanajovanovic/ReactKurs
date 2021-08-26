@@ -1,0 +1,6 @@
+/* stilovi vezani za prikaz jednog komentara  */
+/* posto selektujem po klasi onda imam . ispred naziva klase */
+.comment {
+    border: 1px solid red; 
+    margin: 5px;
+}
