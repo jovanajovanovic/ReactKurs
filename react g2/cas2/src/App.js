@@ -5,6 +5,27 @@ import ReactDOM from 'react-dom';
 import { ShowPosts } from './ShowPosts';
 
 let url_post = 'https://jsonplaceholder.typicode.com/posts'; 
+let url_user = 'https://jsonplaceholder.typicode.com/users'; 
+
+const loadUserById = async (id) => {
+  let user = await fetch(`${url_user}/${id}`); // Promise(user)
+  let user_obj = await user.json(); 
+
+  return user_obj.name; 
+}
+
+const getAllUsers = async(posts) => {
+  // za svaki post treba pozvati metodu loadUserById i
+  //niz koji je niz postova gde je idUser/a zamenjen sa imenom
+  let niz = [];
+  for(let p of posts ) {
+   let user = await loadUserById(p.userId); //ime korisnika
+   let post = {'id': p.id, 'userId': user, 'title': p.title, 'body': p.body};
+   niz.push(post); 
+  }
+
+  return niz; 
+}
 
 const loadPosts = () => {
 // funkcija za dobavljanje postova i izvrsice se klikom na dugme Posts
@@ -18,9 +39,13 @@ const loadPosts = () => {
       // 1. prikazemo te podatke 
       // showPosts ce da mi ima 
       // atribut posts i na taj nacin cu proslediti podatke za prikaz(data)
-      let element = <ShowPosts posts={data}/>
+      getAllUsers(data) //da dobavimo sve korisnike
+      .then(posts => {
+        let element = <ShowPosts posts={posts}/>
       let mesto = document.getElementById('displayEntity');
       ReactDOM.render(element, mesto);
+      })
+      
     })
 }
 

@@ -1,11 +1,13 @@
 // ovde definisemo prikaz jednog post/a 
+import './ShowPost.css';
+
 
 // <ShowPost post={p}/>
 export function ShowPost (props) {
     let post = props.post;  // ovo mi je post koji trebam da prikazem 
 
     let jsx_element = (
-        <div>
+        <div className='post_container'>
             <p>TITLE : {post.title}</p>
             <p>ID : {post.id} </p> 
             <p>USER ID: {post.userId}</p>

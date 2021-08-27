@@ -11,5 +11,5 @@ export function ShowPosts (props) {
     let jsx_elements = postsArray.map((p) => <ShowPost post={p} />)
    
 
-    return <div>{jsx_elements}</div> ;
+    return <div className='posts-container'>{jsx_elements}</div> ;
 }
