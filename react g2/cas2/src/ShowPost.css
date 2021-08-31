@@ -7,3 +7,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+/* definisem sta se desi kada kliknem na div */
+.click-element{
+    border: 2px solid navy; 
+}
