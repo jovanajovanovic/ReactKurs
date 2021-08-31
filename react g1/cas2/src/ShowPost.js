@@ -30,6 +30,13 @@ const showPostInfo = (post, event) => {
         
 }
 
+//props = {todo: todo_data, post: post_data, idx: index}; 
+// ShowPost(props);
+
+// <ShowPost todo={todo_data} post={post_data} idx={index}/>
+
+// <input type='number' minValue='0' maxValue='5'/>
+
 export function ShowPost(props){
     // post atribut => <ShowPost post={data}/> => props.post = {id, userId, body, title}
 

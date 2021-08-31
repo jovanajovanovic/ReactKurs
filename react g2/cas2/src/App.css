@@ -4,7 +4,19 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* kontejner gde nam se nalazi svi postovi */
 .posts-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* podela ekrana na dva dela, ovaj kontejner je mesto gde mi se nalaze kontejneri za prikaz svih postova i info o postovima
+1fr 1fr = 50% 50% */
+.container{
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
 }

@@ -31,6 +31,7 @@ const loadPosts = () => {
 // funkcija za dobavljanje postova i izvrsice se klikom na dugme Posts
   // za ucitavanje koristimo fetch metodi ona ce primiti url ka endpointu za dobavljanje postova 
   // asinhrona metoda sto znaci da se pauzira u toku izvrsavanja => Promise objekat (nemam odmah podatke, ali ce uskoro biti tu)
+ ReactDOM.render(<h1>Dobavljanje sadrzaja...</h1>, document.getElementById('posts_data') ) //ovo sam dodala samo da bi imali informaciju sta se desava 
   fetch(url_post)  
     .then(response => response.json()) //kad podaci stignu izvrsice funkciju koju joj prosledimo; dobijene podatke pretvorimo u objekat
     .then(data => {
@@ -42,7 +43,7 @@ const loadPosts = () => {
       getAllUsers(data) //da dobavimo sve korisnike
       .then(posts => {
         let element = <ShowPosts posts={posts}/>
-      let mesto = document.getElementById('displayEntity');
+      let mesto = document.getElementById('posts_data');
       ReactDOM.render(element, mesto);
       })
       
@@ -60,8 +61,13 @@ function App() {
     <div className="App">
       <button onClick={loadPosts} > Posts </button>
       <button onClick={loadTodos} > Todos </button>
-      <div id='displayEntity'>
+      <div id='displayEntity' className='container'>
         {/* ovde cemo prikazati posts odnosno todos u zavisnosti od toga na sta samo kliknuli */}
+        {/* podelicemo ovaj div na 2 odnosno na jedan koji prikazuje postove i drugi za prikaz vise informacija o jednom postu */}
+        <div id='posts_data'></div>
+        <div id='info_post'>
+          <h1> Info </h1>
+        </div>
       </div>
     </div>
   );

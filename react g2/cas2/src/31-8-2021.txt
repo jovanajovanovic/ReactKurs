@@ -1,0 +1,29 @@
+// IZMENE 
+
+1. u fajl App.js smo dodali dva div/a koji nam sluze da podelimo stranicu na dva dela, odnsno na levi i desni deo
+    - u levom delu cemo prikazati postove
+    - u desnom info o jednom postu 
+2. sve postove smo prikazali u div sa id='displayEntity' zamenili smo u loadPost funkciji da se ti 
+    podaci sad prikazuju u divu posts_data [46 linija koda] odnosno u onom divu koji ce se naci sa leve strane
+
+3. da bi znali da se podaci jos uvek ucitavaju dodali smo i ispis da se prilikom poziva funkcije loadPost prikaze informacija 
+da se podaci ucitavaju [34 linija]
+
+4. dodavanje css/a tako da napravimo da nam se divovi (posts_data, info_post) prikazuje jedan pored drugog, a ne jedan ispod drugog
+    - App.css fajl za div className=container definisemo raspored - display: grid, grid-template-columns: 1fr 1fr; 
+    - definisemo mrezu sa dve kolone
+
+5. sad hocemo da postove lepo rasporedimo tako da nam se nalazi u jednom redu n postova, 
+odnosno onoliko postova koliko moze da stane u jedan red; n > 1
+  - definisemo da nam raspored za kontejner u kojem nam se nalaze postovi bude 
+  display: flex,  flex-direction: row, flex-wrap:wrap [className=posts-container [ShowPosts]] -> App.css [9 linija koda]
+  - sredimo ShowPost kontejner da bi moglo vise kontejnera da stane u jedan red (imali smo da je sirina 60%)
+  - novo -> sirinu smo smanjili na 30% i sad nam u jedan red stane 3 posta [ShowPost.css - linija 4]
+
+
+6. prikaz podataka u desnom delu odnosno informacija o postu 
+    - definisali smo da klikom na div prikazu se podaci 
+        - atribut onClick = {() => showInfo(post)}
+        - onClick atributa kao vrednost prima naziv funkcije ne mozemo da navedemo parametre
+        - da bi mogli da navedemo paramtere napisacemo lambda funkciju koja ce da pozove funkciju koja je obradjivac dogadjaja klik (showInfo) -> ShowPost.js (linija 24)
+    - showInfo funkcija nam prikaze podatke o postu u prostor predvidjen za to odnosno u onaj info_data [ShowPost.js - linija 15]
